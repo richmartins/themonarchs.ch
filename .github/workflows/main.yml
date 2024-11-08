@@ -27,13 +27,13 @@ jobs:
           docker buildx build \
             --platform linux/amd64,linux/arm64 \
             --file Dockerfile.web \
-            --output type=local,dest=web/dist .
+            --output type=local,dest=/web/dist .
         
       - name: Upload dist artifact
         uses: actions/upload-artifact@v3
         with:
           name: dist-artifact
-          path: web/dist
+          path: /web/dist
 
       - name: Download dist artifact
         uses: actions/download-artifact@v3
