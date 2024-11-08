@@ -4,7 +4,7 @@ interface SectionTitleProps {
 
 const SectionTitle: React.FC<SectionTitleProps> = ({title}) => {
     return (
-        <div className="text-center">
+        <div className="text-center w-full mt-12 mt-15">
             <h1
                 className="text-4xl font-bold text-[#d5a948] uppercase"
             >

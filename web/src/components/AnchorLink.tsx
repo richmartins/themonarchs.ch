@@ -7,11 +7,14 @@ interface AnchorLinkProps {
 const AnchorLink: React.FC<AnchorLinkProps> = ({ href, children, active }) => {
     const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();
+        
+        let navBarHeight = document.querySelector('header')?.clientHeight || 0;
+
         const element = document.getElementById(href);
         let burgerMenu = document.getElementById('mobile-nav-menu');
 
         if (element) {
-            const yOffset = -96; // height of navbar 6em = 96px
+            const yOffset = navBarHeight * -1;
             const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
             window.scrollTo({ top: y, behavior: "smooth" });
         }

@@ -11,7 +11,7 @@ const NavBarMobile: React.FC<NavBarMobileProps> = ({ active, sections }) => {
 
     return (
         <>
-            <div className="lg:hidden flex flex-col items-center justify-between hover:cursor-pointer" onClick={() => {setToggleBurgerMenu(!toggleBurgerMenu)}}>
+            <div className="lg:hidden flex flex-col z-50 items-center justify-between hover:cursor-pointer" onClick={() => {setToggleBurgerMenu(!toggleBurgerMenu)}}>
                 <div className="w-8 h-1 bg-[#d5a948]"></div>
                 <div className="w-8 my-1 h-1 bg-[#d5a948]"></div>
                 <div className="w-8 h-1 bg-[#d5a948]"></div>

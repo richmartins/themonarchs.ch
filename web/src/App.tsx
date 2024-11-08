@@ -50,18 +50,6 @@ const offers = [
 function App() {
     const [activeSection, setActiveSection] = useState(sections[0].id);
 
-    const handleContactBtn = () => {
-        const contactSection = document.getElementById("contact");
-        if (contactSection) {
-            const yOffset = -99;
-            const y =
-                contactSection.getBoundingClientRect().top +
-                window.scrollY +
-                yOffset;
-            window.scrollTo({ top: y, behavior: "smooth" });
-        }
-    };
-
     const handleScroll = () => {
         const scrollPosition = window.scrollY;
 
@@ -96,21 +84,22 @@ function App() {
             <main className="md:px-24 sm:px-10">
                 <Section id="home">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-                        <div className="flex flex-col items-center align-center justify-center h-[50svh]">
+                        <div className="flex flex-col items-center align-center justify-center h-[50svh] px-14 ">
                             <h1 className="text-4xl font-bold uppercase text-center md:text-left">
                                 Un Service Haut de Gamme, pour des Cocktails
                                 Exclusifs à Domicile.
                             </h1>
+                            <a href="mailto:contact.themonarchs@gmail.com?subject=Contact">
                             <button
-                                onClick={handleContactBtn}
-                                className="bg-[#d5a948] uppercase text-white px-14 py-4 rounded-md mt-8 text-xl"
-                            >
-                                Contactez nous
-                            </button>
+                                    className="bg-[#d5a948] uppercase text-white px-14 py-4 rounded-md mt-8 text-xl"
+                                >
+                                    Contactez nous
+                                </button>
+                            </a>
                         </div>
                         <div className="md:flex md:justify-center">
                             <video
-                                className="z-[-9999] md:max-h-[550px] md:relative"
+                                className="-z-50 md:max-h-[550px] relative"
                                 autoPlay
                                 loop
                                 muted
@@ -121,12 +110,12 @@ function App() {
                     </div>
                 </Section>
                 <Section id="about">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:h-[100svh] items-center px-14">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center px-14">
                         <div>
                             <img
                                 src={aboutImg}
                                 alt="About"
-                                className="w-full"
+                                className="h-full"
                             />
                         </div>
                         <div>
@@ -185,9 +174,9 @@ function App() {
                     </div>
                 </Section>
                 <Section id="partners">
-                    <div className="px-14 h-full flex md:flex-col md:items-center">
+                    <div className="px-14 h-full flex flex-col md:items-center">
                         <SectionTitle title="Nos partenaires" />
-                        <div className="flex flex-row justify-items-start flex-wrap md:justify-evenly">
+                        <div className="flex flex-col justify-center items-center md:flex-row md:justify-items-start flex-wrap md:justify-evenly">
                             <img
                                 src={sponsor1}
                                 alt="Sponsor 1"
@@ -196,7 +185,7 @@ function App() {
                             <img
                                 src={sponsor2}
                                 alt="Sponsor 2"
-                                className="w-1/3 md:h-[250px] md:w-auto"
+                                className="w-1/3 md:h-[250px] md:w-auto my-5"
                             />
                             <img
                                 src={sponsor3}
@@ -207,11 +196,12 @@ function App() {
                     </div>
                 </Section>
                 <Section id="prices">
-                    <div className="px-14 h-full w-full flex md:flex-col md:items-center">
+                    <div className="px-14 h-full w-full flex flex-col justify-center items-center md:items-center">
                         <SectionTitle title="Nos Offres" />
-                        <div className="w-full grid grid-cols-1 md:grid-cols-3 place-items-center">
-                            {offers.map((offer) => (
+                        <div className="w-full flex flex-col justify-stretch md:flex-row flex-wrap place-items-center">
+                            {offers.map((offer, index) => (
                                 <PriceCard
+                                    key={index}
                                     title={offer.title}
                                     description={offer.description}
                                     price={offer.price}

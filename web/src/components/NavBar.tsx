@@ -5,7 +5,8 @@ interface NavBarProps {
     sections: { id: string; title: string }[];
 }
 
-const NavBar: React.FC<NavBarProps> = ({active, sections }) => {
+const NavBar: React.FC<NavBarProps> = ({ active, sections }) => {
+
     return (
         <nav className="flex flex-">
             <ul className='hidden lg:flex flex-row justify-between'>

@@ -7,7 +7,7 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ id, children }) => {
     return (
-        <section className="min-h-[100svh] py-5" id={id}>
+        <section className="md:min-h-[100svh] py-5" id={id}>
             {children}
         </section>
     );
