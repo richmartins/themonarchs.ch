@@ -21,6 +21,26 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build Node app
+        run: |
+          docker buildx create --use
+          docker buildx build \
+            --platform linux/amd64,linux/arm64 \
+            --file Dockerfile.web \
+            --output type=local,dest=web/dist .
+        
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-artifact
+          path: web/dist
+
+      - name: Download dist artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-artifact
+          path: dist
+
       - name: Build and push Docker Nginx image
         run: |
           docker buildx create --use
@@ -30,3 +50,5 @@ jobs:
             --platform linux/amd64,linux/arm64 \
             --push \
             --file Dockerfile.nginx .
+        env:
+          DIST_PATH: dist/
