@@ -24,6 +24,7 @@ jobs:
       - name: Build Node app
         run: |
           cd $GITHUB_WORKSPACE/web
+          npm install
           npm run build
 
       - name: Build and push Docker Nginx image
