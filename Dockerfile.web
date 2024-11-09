@@ -1,7 +1,0 @@
-FROM node:latest
-
-WORKDIR /web
-
-COPY web .
-
-CMD ["npm", "run", "build"]

@@ -50,6 +50,8 @@ const offers = [
 function App() {
     const [activeSection, setActiveSection] = useState(sections[0].id);
 
+    const navBarHeight = document.querySelector("header")?.clientHeight || 0;
+
     const handleScroll = () => {
         const scrollPosition = window.scrollY;
 
@@ -82,7 +84,7 @@ function App() {
         <div className="w-full">
             <Header active={activeSection} sections={sections} />
             <main className="md:px-24 sm:px-10">
-                <Section id="home">
+                <Section id="home" className={`pt-[${navBarHeight + 10}px]`}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
                         <div className="flex flex-col items-center align-center justify-center h-[50svh] px-14 ">
                             <h1 className="text-4xl font-bold uppercase text-center md:text-left">
@@ -97,14 +99,16 @@ function App() {
                                 </button>
                             </a>
                         </div>
-                        <div className="md:flex md:justify-center">
+                        <div className="md:flex md:justify-center mt-12 md:mt-0">
                             <video
-                                className="-z-50 md:max-h-[550px] relative"
+                                className="-z-50 md:max-h-[550px]"
                                 autoPlay
+                                playsInline
                                 loop
                                 muted
                             >
                                 <source src={introVideo} type="video/mp4" />
+                                Your browser does not support the video tag.
                             </video>
                         </div>
                     </div>
@@ -115,7 +119,7 @@ function App() {
                             <img
                                 src={aboutImg}
                                 alt="About"
-                                className="h-full"
+                                className=""
                             />
                         </div>
                         <div>
@@ -198,7 +202,7 @@ function App() {
                 <Section id="prices">
                     <div className="px-14 h-full w-full flex flex-col justify-center items-center md:items-center">
                         <SectionTitle title="Nos Offres" />
-                        <div className="w-full flex flex-col justify-stretch md:flex-row flex-wrap place-items-center">
+                        <div className="w-full flex flex-col justify-center items-center md:flex-row flex-wrap place-items-center">
                             {offers.map((offer, index) => (
                                 <PriceCard
                                     key={index}
