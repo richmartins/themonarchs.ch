@@ -50,8 +50,6 @@ const offers = [
 function App() {
     const [activeSection, setActiveSection] = useState(sections[0].id);
 
-    const navBarHeight = document.querySelector("header")?.clientHeight || 0;
-
     const handleScroll = () => {
         const scrollPosition = window.scrollY;
 
@@ -71,10 +69,11 @@ function App() {
             }
         });
     };
-
+    let navBarHeight = 0;
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 
+        navBarHeight = document.querySelector("header")?.clientHeight || 0;
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
@@ -84,9 +83,9 @@ function App() {
         <div className="w-full">
             <Header active={activeSection} sections={sections} />
             <main className="md:px-24 sm:px-10">
-                <Section id="home" className={`pt-[${navBarHeight + 10}px]`}>
+                <Section id="home">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-                        <div className="flex flex-col items-center align-center justify-center h-[50svh] px-14 ">
+                        <div className="flex flex-col items-center align-center justify-center md:h-[50svh] px-14" style={{ paddingTop: `${navBarHeight + 60}px` }}>
                             <h1 className="text-4xl font-bold uppercase text-center md:text-left">
                                 Un Service Haut de Gamme, pour des Cocktails
                                 Exclusifs à Domicile.
