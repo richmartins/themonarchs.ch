@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+sitemap: https://themonarchs.ch/sitemap.xml
