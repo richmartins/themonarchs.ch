@@ -17,7 +17,7 @@ import "./App.css";
 
 const sections = [
     { id: "home", title: "Accueil" },
-    { id: "about", title: "Qui sommes nous" },
+    { id: "about", title: "Qui sommes-nous ?" },
     { id: "services", title: "Nos Services" },
     { id: "partners", title: "Nos partenaires" },
     { id: "prices", title: "Nos offres" },
@@ -94,7 +94,7 @@ function App() {
                             <button
                                     className="bg-[#d5a948] uppercase text-white px-14 py-4 rounded-md mt-8 text-xl"
                                 >
-                                    Contactez nous
+                                    Contactez-nous
                                 </button>
                             </a>
                         </div>
@@ -122,11 +122,11 @@ function App() {
                             />
                         </div>
                         <div>
-                            <SectionTitle title="Qui sommes nous" />
+                            <SectionTitle title="Qui sommes-nous ?" />
                             <p className="text-xl my-4 uppercase">
                                 C'est sur les terrains de football des hauts de
                                 Lausanne que Nils Käller et Brais Sesto font
-                                connaissance, alors qu'ils étaient à peine âgés
+                                connaissance, alors qu'ils sont à peine âgés
                                 d'une dizaine d'années.
                             </p>
                             <p className="text-xl my-4 uppercase">
@@ -139,7 +139,7 @@ function App() {
                             <p className="text-xl my-4 uppercase">
                                 Leur passion commune pour l'accueil, le service,
                                 le partage ainsi que les expériences gustatives
-                                et festives donne naissance à The Monarchs. 🍸👑
+                                et festives donnent naissance à The Monarchs. 🍸👑
                             </p>
                         </div>
                     </div>
@@ -150,7 +150,7 @@ function App() {
                             <SectionTitle title="Nos Services" />
                             <p className="text-xl my-4 uppercase">
                                 <b>
-                                    Une prestation sur-mesure en fonction de vos
+                                    Une prestation sur mesure en fonction de vos
                                     besoins.
                                 </b>
                                 <br />
